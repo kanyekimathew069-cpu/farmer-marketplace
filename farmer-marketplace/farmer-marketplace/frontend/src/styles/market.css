@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --soil: #2b2118;
+  --parchment: #efe6d3;
+  --parchment-deep: #e4d8bc;
+  --maize: #c99a2e;
+  --leaf: #4a6c3c;
+  --leaf-deep: #33502a;
+  --clay-red: #a44a3f;
+  --line: #d8c9a3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--soil);
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1, h2, h3, .brand {
+  font-family: "Zilla Slab", serif;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.page-loading { padding: 3rem; text-align: center; color: var(--soil); }
+
+/* --- Top nav: signage-style, not a floating SaaS bar --- */
+.market-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: var(--soil);
+  color: var(--parchment);
+  border-bottom: 4px solid var(--maize);
+}
+.market-nav .brand {
+  color: var(--parchment);
+  font-size: 1.35rem;
+  text-decoration: none;
+}
+.market-nav .brand span { color: var(--maize); }
+.market-nav nav { display: flex; gap: 1.25rem; align-items: center; }
+.market-nav a, .market-nav button.linklike {
+  color: var(--parchment);
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+  cursor: pointer;
+  padding: 0;
+  font-family: inherit;
+}
+.market-nav a:hover, .market-nav button.linklike:hover { color: var(--maize); }
+.pill {
+  background: var(--leaf);
+  color: white;
+  padding: 0.3rem 0.75rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.hero {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.75rem;
+  margin-bottom: 2rem;
+}
+.hero h1 { font-size: 2.1rem; margin: 0 0 0.4rem; }
+.hero p { max-width: 42ch; color: #55483a; margin: 0; }
+
+/* --- Filters bar: like a market stall chalkboard, not rounded card --- */
+.filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: var(--parchment-deep);
+  border: 1px solid var(--line);
+}
+.filters input, .filters select {
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  background: white;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.listing-card {
+  border: 1px solid var(--line);
+  background: white;
+  padding: 1.1rem;
+  border-top: 3px solid var(--leaf);
+}
+.listing-card h3 { margin: 0 0 0.3rem; font-size: 1.1rem; }
+.listing-card .price { color: var(--clay-red); font-weight: 600; font-size: 1.05rem; margin: 0.4rem 0; }
+.listing-card .meta { font-size: 0.85rem; color: #6b5d48; margin-bottom: 0.6rem; }
+.listing-card button {
+  width: 100%;
+  padding: 0.55rem;
+  background: var(--leaf);
+  color: white;
+  border: none;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+}
+.listing-card button:hover { background: var(--leaf-deep); }
+.listing-card button:disabled { background: #a3a396; cursor: not-allowed; }
+
+.form-card {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--maize);
+}
+.form-card h2 { margin-top: 0; }
+.form-card label { display: block; font-size: 0.85rem; margin: 0.9rem 0 0.3rem; color: #55483a; }
+.form-card input, .form-card select, .form-card textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--line);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.form-card button[type="submit"] {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.7rem;
+  background: var(--soil);
+  color: var(--parchment);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+.form-card button[type="submit"]:hover { background: #443528; }
+.form-card .switch { margin-top: 1rem; font-size: 0.85rem; text-align: center; }
+.error-msg { color: var(--clay-red); font-size: 0.85rem; margin-top: 0.75rem; }
+
+.status-tag {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 2px;
+  font-weight: 600;
+}
+.status-pending { background: #f0dfa8; color: #6b5013; }
+.status-approved { background: #cfe0c4; color: #33502a; }
+.status-rejected { background: #e5c6c1; color: #7a2e24; }
+.status-sold_out { background: #ddd; color: #555; }
+
+table.data-table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+table.data-table th, table.data-table td {
+  text-align: left;
+  padding: 0.6rem 0.7rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+table.data-table th { color: #6b5d48; font-weight: 600; }
